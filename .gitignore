@@ -1,8 +1,13 @@
 logs
-target
+target/
 /.idea
 /.idea_modules
 /.classpath
 /.project
 /.settings
+/.ensime
+/.ensime_cache/
 /RUNNING_PID
+
+/shared/.js/
+/shared/.jvm/

@@ -1,15 +1,14 @@
 package controllers
 
-import javax.inject._
 import play.api._
 import play.api.mvc._
+import upickle.default._
 
 /**
  * This controller creates an `Action` to handle HTTP requests to the
  * application's home page.
  */
-@Singleton
-class HomeController @Inject() extends Controller {
+class HomeController extends Controller {
 
   /**
    * Create an Action to render an HTML page.
@@ -21,4 +20,9 @@ class HomeController @Inject() extends Controller {
   def index = Action { implicit request =>
     Ok(views.html.index())
   }
+
+  def message = Action { implicit request =>
+    Ok(write(chat.Message("hello")))
+  }
+
 }
