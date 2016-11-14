@@ -41,10 +41,10 @@ class RoomActor extends Actor {
       }
 
     case Terminated(client) =>
-      clients -= client
       for ( (cl, _) <- clients ) {
         cl ! Left(clients(client))
       }
+      clients -= client
 
     case Broadcast(content) =>
       val origin = clients(sender)

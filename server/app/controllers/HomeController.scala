@@ -31,6 +31,10 @@ class HomeController @Inject() (
     Ok(views.html.index())
   }
 
+  def chat(uid: String) = Action { implicit request =>
+    Ok(views.html.chat(uid))
+  }
+
   def socket(uid: String) = WebSocket.accept[Command, Event] { request =>
     ActorFlow.actorRef(out => Props(classOf[ClientActor], uid, room, out))
   }
